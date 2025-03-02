@@ -31,7 +31,6 @@ const Login = () => {
                     const errorCode = error.code;
                     const errorMessage = error.message;
                     setErrMsg(errorCode)
-                    console.log(errorMessage)
                 });
         } else{
             signInWithEmailAndPassword(auth, email.current.value, password.current.value)
@@ -45,16 +44,13 @@ const Login = () => {
                     const errorCode = error.code;
                     const errorMessage = error.message;
                     setErrMsg(errorCode)
-                    console.log(errorMessage)
                 });
         }
     };
 
-    
     const toggleSignInBtn = () => {
         setIsSignUp(!isSignUp)
     };
-
 
   return (
     <div>
@@ -99,4 +95,4 @@ const Login = () => {
   )
 }
 
-export default Login
+export default Login;

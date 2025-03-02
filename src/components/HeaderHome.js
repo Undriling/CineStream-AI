@@ -39,11 +39,11 @@ const HeaderHome = () => {
 
     
     return (
-        <div className='w-full relative px-15 mx-15 py-3 z-10 bg-gradient-to-b from-black flex justify-between flex-wrap'>
+        <div className='w-full absolute px-15 mx-15 py-3 z-10 bg-gradient-to-b from-black flex justify-between flex-wrap'>
             <img src={Logo_URL} alt='logo' className='w-[140px] cursor-pointer' />
             <div className='grid place-items-center w-auto h-10 mx-2'>
                 <img src={NetflixPofileImage} alt='profile-image'className='w-10 h-10 rounded-md  cursor-pointer'/>
-                <button className='font-serif font-light h-6 hover:bg-slate-400 my-[2px] rounded-lg' onClick={handleSignOut}>Sign out</button>
+                <button className='font-serif font-light w-20 h-6 text-white hover:bg-white hover:text-black my-[2px] rounded-lg' onClick={handleSignOut}>Sign out</button>
             </div>
         </div>
       )
