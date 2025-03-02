@@ -9,3 +9,13 @@ export const API_Options = {
       Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJmNjljYTlhYWZjZjAxOGFlMTZlOTJlMWMwZjBiZTUzNyIsIm5iZiI6MTc0MDU3ODA2NS40NzEsInN1YiI6IjY3YmYxZDExYTc5NmU5NDY4ZWVmYmFjYyIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.XWVvSrkwXGye13rFhJ2ek6OKW1nv3YXY2t3qFZvE1T4'
     }
   };
+
+export const Movie_Banner_URL = "https://image.tmdb.org/t/p/w500";
+
+export const NowPlayingMovie_URL = "https://api.themoviedb.org/3/movie/now_playing";
+
+export const PopularMovie_URL = "https://api.themoviedb.org/3/movie/popular";
+
+export const TrendingMovie_URL = "https://api.themoviedb.org/3/movie/top_rated";
+
+export const UpcomingMovie_URL = "https://api.themoviedb.org/3/movie/upcoming";

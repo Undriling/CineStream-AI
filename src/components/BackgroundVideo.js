@@ -9,9 +9,9 @@ const BackgroundVideo = ({movieId}) => {
 
   return (
     <div className='absolute'>
-        <iframe className='w-screen aspect-video absolute' src={"https://www.youtube.com/embed/"+ trailerVideo?.key + "?autoplay=1&mute=1&loop=1&controls=0"} 
-            title="YouTube video player"  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-            referrerpolicy="strict-origin-when-cross-origin">
+        <iframe className='w-screen aspect-video absolute' src={"https://www.youtube.com/embed/"+ trailerVideo?.key + "?playlist="+ trailerVideo?.key + "&autoplay=1&mute=1&loop=1&controls=0&rel=0&showinfo=0&modestbranding=1&iv_load_policy=3"} 
+            title="YouTube video player"  allow="autoplay; encrypted-media; web-share" 
+            referrerPolicy="strict-origin-when-cross-origin">
             </iframe>
     </div>
   )
