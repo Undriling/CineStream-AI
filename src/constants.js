@@ -19,3 +19,8 @@ export const PopularMovie_URL = "https://api.themoviedb.org/3/movie/popular";
 export const TrendingMovie_URL = "https://api.themoviedb.org/3/movie/top_rated";
 
 export const UpcomingMovie_URL = "https://api.themoviedb.org/3/movie/upcoming";
+
+export const SupportedLanguages = [{identifier: "en", name: "English"}, {identifier: "assamese", name: "Assamese"},
+   {identifier: "hindi", name: "Hindi"}, {identifier: "punjabi", name: "Punjabi"}, 
+   {identifier: "marathi", name: "Marathi"}, {identifier: "gujarati", name: "Gujarati"}, 
+   {identifier: "french", name: "French"}];
