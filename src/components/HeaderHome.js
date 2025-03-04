@@ -52,9 +52,11 @@ const HeaderHome = () => {
     };
 
     
+
+    
     return (
         <div className='w-full absolute px-15 mx-15 py-3 z-10 bg-gradient-to-b from-black flex justify-between flex-wrap'>
-            <img src={Logo_URL} alt='logo' className='w-[140px] cursor-pointer' />
+            <img src={Logo_URL} alt='logo' className='w-[140px] cursor-pointer'/>
             <select className='px-1 my-2 mx-2 ml-[60%] rounded-xl bg-purple-600 text-white font-serif hover:bg-purple-800' onChange={handleLangChange}>
                 {SupportedLanguages.map((lang) => <option key={lang.identifier} value={lang.identifier}>{lang.name}</option>)}
             </select>

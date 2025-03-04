@@ -24,3 +24,10 @@ export const SupportedLanguages = [{identifier: "en", name: "English"}, {identif
    {identifier: "hindi", name: "Hindi"}, {identifier: "punjabi", name: "Punjabi"}, 
    {identifier: "marathi", name: "Marathi"}, {identifier: "gujarati", name: "Gujarati"}, 
    {identifier: "french", name: "French"}];
+
+export const MoviePage_URLPi = "https://www.themoviedb.org/movie/";
+export const MoviePage_URLPii = "/watch?translate=true&locale=IN";
+
+export const OpenaiKey = "";
+
+
