@@ -10,6 +10,7 @@ const lang = {
         signInText: "Sign In",
         signOutText: "Sign Out",
         gptSearchText: "GPT Search",
+        gptReturnText: "Home",
     },
     hindi: {
         search: "खोज",
@@ -23,6 +24,7 @@ const lang = {
         signInText: "Sign In",
         signOutText: "साइन आउट",
         gptSearchText: "जीपीटी सर्च",
+        gptReturnText: "होम",
     },
     assamese: {
         search: "সন্ধান",
@@ -36,6 +38,7 @@ const lang = {
         signInText: "Sign In",
         signOutText: "চাইন আউট",
         gptSearchText: "জিপিটি চাৰ্চ",
+        gptReturnText: "হোম",
     },
     punjabi: {
         search: "ਖੋਜ",
@@ -48,6 +51,7 @@ const lang = {
         signInText: "Sign In",
         signOutText: "ਸਾਇਨ ਆਉਟ",
         gptSearchText: "ਜੀਪੀਟੀ ਖੋਜ",
+        gptReturnText: "ਹੋਮ",
     },
     marathi: {
         search: "शोधा",
@@ -60,6 +64,7 @@ const lang = {
         signInText: "Sign In",
         signOutText: "साइन आउट",
         gptSearchText: "जीपीटी शोध",
+        gptReturnText: "होम",
     },
     gujarati: {
         search: "શોધો",
@@ -72,6 +77,7 @@ const lang = {
         signInText: "Sign In",
         signOutText: "સાઇન આઉટ",
         gptSearchText: "જીપીટી શોધ",
+        gptReturnText: "હોમ",
     },
     french: {
         search: "Recherche",
@@ -85,6 +91,7 @@ const lang = {
         signInText: "Sign In",
         signOutText: "Se déconnecter",
         gptSearchText: "Recherche GPT",
+        gptReturnText: "Maison",
     },
 };
 

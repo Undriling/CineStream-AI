@@ -2,9 +2,10 @@ import React from 'react'
 import { Movie_Banner_URL, MoviePage_URLPi, MoviePage_URLPii } from '../constants'
 
 const MovieCard = ({posterPath, id}) => {
+  if(!posterPath) return null;
 
   const goToReviewPage = () => {
-    window.open(MoviePage_URLPi+id+MoviePage_URLPii, '_blank')
+    window.open(MoviePage_URLPi + id + MoviePage_URLPii, '_blank')
   };
 
   return (

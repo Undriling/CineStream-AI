@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import { Logo_URL, SupportedLanguages } from '../constants';
 import NetflixPofileImage from '../assets/netflixProfileImg.jpg'
 import { onAuthStateChanged, signOut } from 'firebase/auth';
@@ -11,10 +11,10 @@ import { changeLang } from '../utils/langConfigSlice';
 import lang from '../langConstants';
 
 const HeaderHome = () => {
-    const langKey = useSelector((store) => store.langConfig.langSelect)
-
+    const langKey = useSelector((store) => store.langConfig.langSelect);
     const navigate = useNavigate();
     const dispatch = useDispatch();
+    const [gptSearchBtn, setGptSearchBtn] = useState(lang[langKey].gptSearchText);
 
 
     const handleSignOut = () => {
@@ -44,6 +44,7 @@ const HeaderHome = () => {
 
     const handleGptSearch = () => {
         dispatch(toggleGptSearch())
+        setGptSearchBtn((text) => text === lang[langKey]?.gptSearchText ? lang[langKey]?.gptReturnText : lang[langKey]?.gptSearchText )
     };
 
 
@@ -60,7 +61,7 @@ const HeaderHome = () => {
             <select className='px-1 my-2 mx-2 ml-[60%] rounded-xl bg-purple-600 text-white font-serif hover:bg-purple-800' onChange={handleLangChange}>
                 {SupportedLanguages.map((lang) => <option key={lang.identifier} value={lang.identifier}>{lang.name}</option>)}
             </select>
-            <button className='px-3 my-2 mx-2 rounded-xl ml-auto bg-purple-600 text-white font-serif hover:bg-purple-800' onClick={handleGptSearch}>{lang[langKey].gptSearchText}</button>
+            <button className='px-3 my-2 mx-2 rounded-xl ml-auto bg-purple-600 text-white font-serif hover:bg-purple-800' onClick={handleGptSearch}>{gptSearchBtn}</button>
             <div className='grid place-items-center w-auto h-10 mx-2'>
                 <img src={NetflixPofileImage} alt='profile-image'className='w-10 h-10 rounded-md  cursor-pointer'/>
                 <button className='font-serif font-light w-20 h-6 text-white my-[2px] rounded-lg hover:text-red-500' onClick={handleSignOut}>{lang[langKey].signOutText}</button>

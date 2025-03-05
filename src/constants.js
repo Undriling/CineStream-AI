@@ -6,7 +6,7 @@ export const API_Options = {
     method: 'GET',
     headers: {
       accept: 'application/json',
-      Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJmNjljYTlhYWZjZjAxOGFlMTZlOTJlMWMwZjBiZTUzNyIsIm5iZiI6MTc0MDU3ODA2NS40NzEsInN1YiI6IjY3YmYxZDExYTc5NmU5NDY4ZWVmYmFjYyIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.XWVvSrkwXGye13rFhJ2ek6OKW1nv3YXY2t3qFZvE1T4'
+      Authorization: 'Bearer '+ process.env.REACT_APP_TMDB_KEY
     }
   };
 
@@ -20,14 +20,12 @@ export const TrendingMovie_URL = "https://api.themoviedb.org/3/movie/top_rated";
 
 export const UpcomingMovie_URL = "https://api.themoviedb.org/3/movie/upcoming";
 
-export const SupportedLanguages = [{identifier: "en", name: "English"}, {identifier: "assamese", name: "Assamese"},
-   {identifier: "hindi", name: "Hindi"}, {identifier: "punjabi", name: "Punjabi"}, 
+export const SupportedLanguages = [{identifier: "en", name: "English"}, {identifier: "assamese", name: "অসমীয়া"},
+   {identifier: "hindi", name: "हिन्दी"}, {identifier: "punjabi", name: "Punjabi"}, 
    {identifier: "marathi", name: "Marathi"}, {identifier: "gujarati", name: "Gujarati"}, 
    {identifier: "french", name: "French"}];
 
 export const MoviePage_URLPi = "https://www.themoviedb.org/movie/";
 export const MoviePage_URLPii = "/watch?translate=true&locale=IN";
 
-export const OpenaiKey = "";
-
-
+export const geminiApi_Key = process.env.REACT_APP_GEMINI_KEY;
