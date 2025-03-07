@@ -9,7 +9,7 @@ const MovieListContainer = () => {
 
   return (
     movies && (
-    <div className='absolute mt-[50%] w-screen bg-black'>
+    <div className='absolute mt-[65%] md:mt-[50%] w-screen bg-black'>
         <MovieList title={lang[langKey].nowPlayingText} movies={movies?.nowPlayingMovies}/>
         <MovieList title={lang[langKey].trendingText} movies={movies?.trendingMovie}/>
         <MovieList title={lang[langKey].popularText} movies={movies?.popularMovie}/>

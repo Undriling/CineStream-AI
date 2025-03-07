@@ -5,13 +5,16 @@ import GptSearchResults from './gptSearchResults';
 
 const GptSearchPage = () => {
   return (
-    <div className=''>
-        <div className='absolute  bg-[length:200%] -z-10' >
-            <img src={Bg_URL} alt='bg-image' className='filter blur-[1.5px]'/>
-        </div>
+    <>
+      <div className='absolute -z-10' >
+            <img src={Bg_URL} alt='bg-image' className='h-screen object-cover md:h-auto'/>
+      </div> 
+      <div className=''>  
         <GptSearchBar/>
         <GptSearchResults/>
-    </div>
+      </div>
+    </>
+    
   )
 }
 

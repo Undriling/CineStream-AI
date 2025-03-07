@@ -27,7 +27,7 @@ const Header = () => {
 }, []);
 
   return (
-    <div className='absolute px-20 mx-20 py-4 z-10'>
+    <div className='absolute px-4 md:px-20 md:mx-20 py-4 z-10'>
         <img src={Logo_URL} alt='logo' className='w-[200px]' />
     </div>
   )

@@ -56,10 +56,10 @@ const Login = () => {
     <div>
         <Header/>
         <div className='absolute  bg-[length:200%]' >
-            <img src={Bg_URL} alt='bg-image' className='filter blur-[1.5px] '/>
+            <img src={Bg_URL} alt='bg-image' className='filter blur-[1.6px] md:blur-[1.5px] h-screen object-cover md:h-auto opacity-60'/>
         </div>
-        <form className='absolute p-7 my-[100px] rounded-lg h mx-auto right-0 left-0  w-4/12 h-auto bg-gradient-to-br from-black bg-opacity-70' onSubmit={(e) => e.preventDefault()}>
-            <h1 className='text-white font-extrabold my-5 text-3xl'>{isSignUp ? "Sign Up" : "Sign In"}</h1>
+        <form className='absolute p-7 my-[200px] md:my-[100px] rounded-lg mx-5 md:mx-auto right-0 left-0 w-[90%] md:w-4/12 h-auto bg-gradient-to-br from-black bg-opacity-70' onSubmit={(e) => e.preventDefault()}>
+            <h1 className='text-white font-extrabold my-5 text-2xl md:text-3xl'>{isSignUp ? "Sign Up" : "Sign In"}</h1>
 
             {isSignUp && 
                 <div className='my-5 bg-gradient-to-br rounded-md focus:outline-none'>

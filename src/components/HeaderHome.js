@@ -14,7 +14,7 @@ const HeaderHome = () => {
     const langKey = useSelector((store) => store.langConfig.langSelect);
     const navigate = useNavigate();
     const dispatch = useDispatch();
-    const [gptSearchBtn, setGptSearchBtn] = useState(lang[langKey].gptSearchText);
+    const [gptSearchBtn, setGptSearchBtn] = useState("AI Search");
 
 
     const handleSignOut = () => {
@@ -44,7 +44,7 @@ const HeaderHome = () => {
 
     const handleGptSearch = () => {
         dispatch(toggleGptSearch())
-        setGptSearchBtn((text) => text === lang[langKey]?.gptSearchText ? lang[langKey]?.gptReturnText : lang[langKey]?.gptSearchText )
+        setGptSearchBtn((text) => text === "AI Search" ? "Home" : "AI Search" )
     };
 
 
@@ -56,15 +56,15 @@ const HeaderHome = () => {
 
     
     return (
-        <div className='w-full absolute px-15 mx-15 py-3 z-10 bg-gradient-to-b from-black flex justify-between flex-wrap'>
-            <img src={Logo_URL} alt='logo' className='w-[140px] cursor-pointer'/>
-            <select className='px-1 my-2 mx-2 ml-[60%] rounded-xl bg-purple-600 text-white font-serif hover:bg-purple-800' onChange={handleLangChange}>
-                {SupportedLanguages.map((lang) => <option key={lang.identifier} value={lang.identifier}>{lang.name}</option>)}
+        <div className='w-full absolute pt-1 md:pt-0 md:px-15 md:mx-15 md:py-3 z-10 bg-gradient-to-b from-black flex justify-between flex-wrap md:flex-row md:bg-transparent bg-black'>
+            <img src={Logo_URL} alt='logo' className='mx-auto md:mx-0 w-[140px] cursor-pointer'/>
+            <select className='md:px-1 my-6 md:my-2 md:mx-2 md:ml-[60%] rounded-xl bg-purple-600 text-white font-serif hover:bg-purple-800' onChange={handleLangChange}>
+                {SupportedLanguages.map((lang) => <option key={lang.identifier} value={lang.identifier} className='text-[8px] md:text-[15px] my-1'>{lang.name}</option>)}
             </select>
-            <button className='px-3 my-2 mx-2 rounded-xl ml-auto bg-purple-600 text-white font-serif hover:bg-purple-800' onClick={handleGptSearch}>{gptSearchBtn}</button>
-            <div className='grid place-items-center w-auto h-10 mx-2'>
+            <button className='px-2 md:px-3 my-6 md:my-2 mx-3 md:mx-2 rounded-xl md:ml-auto bg-purple-600 text-white font-serif hover:bg-purple-800' onClick={handleGptSearch}>{gptSearchBtn}</button>
+            <div className='grid place-items-center w-auto md:mt-0 md:h-10 my-2 md:my-0 -ml-2 md:-ml-0 mr-4 md:mr-0 md:mx-2'>
                 <img src={NetflixPofileImage} alt='profile-image'className='w-10 h-10 rounded-md  cursor-pointer'/>
-                <button className='font-serif font-light w-20 h-6 text-white my-[2px] rounded-lg hover:text-red-500' onClick={handleSignOut}>{lang[langKey].signOutText}</button>
+                <button className='font-serif text-xs md:text-sm font-light w-20 h-6 text-white my-[2px] rounded-lg hover:text-red-500' onClick={handleSignOut}>{lang[langKey].signOutText}</button>
             </div>
         </div>
       )
