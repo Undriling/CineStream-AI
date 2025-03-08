@@ -1,7 +1,7 @@
 import { genAiMovieSearch } from '../utils/gptSlice';
 import { useDispatch } from 'react-redux';
 import genAI from '../utils/geminiai';
-import { API_Options } from '../constants';
+import { API_Options, SearchMoviesFrm_TMDBi, SearchMoviesFrm_TMDBii } from '../constants';
 import { useRef } from 'react';
 
 const useHandleGenaiSearch = () => {
@@ -9,7 +9,7 @@ const useHandleGenaiSearch = () => {
     const gptSearchInput = useRef(null);
 
     const searchMoviesFrmTMDB = async (movie) => {
-          const data = await fetch("https://api.themoviedb.org/3/search/movie?query="+ movie +"&include_adult=false&language=en-US&page=1", API_Options)
+          const data = await fetch(SearchMoviesFrm_TMDBi + movie + SearchMoviesFrm_TMDBii, API_Options)
     
           const json = await data.json();
           return json.results;

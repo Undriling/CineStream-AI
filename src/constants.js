@@ -12,6 +12,9 @@ export const API_Options = {
 
 export const Movie_Banner_URL = "https://image.tmdb.org/t/p/w500";
 
+export const GetTrailer_URLi = "https://api.themoviedb.org/3/movie/";
+export const GetTrailer_URLii = "/videos?language=en-US";
+
 export const NowPlayingMovie_URL = "https://api.themoviedb.org/3/movie/now_playing";
 
 export const PopularMovie_URL = "https://api.themoviedb.org/3/movie/popular";
@@ -27,5 +30,8 @@ export const SupportedLanguages = [{identifier: "en", name: "English"}, {identif
 
 export const MoviePage_URLPi = "https://www.themoviedb.org/movie/";
 export const MoviePage_URLPii = "/watch?translate=true&locale=IN";
+
+export const SearchMoviesFrm_TMDBi = "https://api.themoviedb.org/3/search/movie?query=";
+export const SearchMoviesFrm_TMDBii = "&include_adult=false&language=en-US&page=1";
 
 export const geminiApi_Key = process.env.REACT_APP_GEMINI_KEY;
