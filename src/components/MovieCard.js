@@ -1,16 +1,21 @@
 import React from 'react'
-import { Movie_Banner_URL, MoviePage_URLPi, MoviePage_URLPii } from '../constants'
+import { Movie_Banner_URL, MoviePlayer_URL } from '../constants'
 
 const MovieCard = ({posterPath, id}) => {
   if(!posterPath) return null;
 
-  const goToReviewPage = () => {
-    window.open(MoviePage_URLPi + id + MoviePage_URLPii, '_blank')
+  // const goToReviewPage = () => {
+  //   window.open(MoviePage_URLPi + id + MoviePage_URLPii, '_blank')
+  //   console.log("Movie ID:", id);
+  // };
+
+  const handleClick = () => {
+    window.open(MoviePlayer_URL + id, '_blank')
   };
 
   return (
-    <div className='w-[150px] md:w-[220px] md:mx-0 mx-2'>
-        <img className='w-[210px] h-[210px] rounded-lg cursor-pointer' alt='Movie Banner' src={Movie_Banner_URL + posterPath} onClick={goToReviewPage}/>
+    <div className='w-[150px] md:w-[200px] h-[250px] rounded-lg md:mx-0 mx-2 hover:scale-110 transition-transform duration-200 ease-in-out'>
+        <img className='w-[185px] h-[240px] rounded-lg cursor-pointer' alt='Movie Banner' src={Movie_Banner_URL + posterPath} onClick={handleClick}/>
     </div>
   )
 }

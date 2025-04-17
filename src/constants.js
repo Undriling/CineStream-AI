@@ -31,7 +31,23 @@ export const SupportedLanguages = [{identifier: "en", name: "English"}, {identif
 export const MoviePage_URLPi = "https://www.themoviedb.org/movie/";
 export const MoviePage_URLPii = "/watch?translate=true&locale=IN";
 
+export const MoviePlayer_URL = "https://vidsrc.cc/v2/embed/movie/";
+
 export const SearchMoviesFrm_TMDBi = "https://api.themoviedb.org/3/search/movie?query=";
 export const SearchMoviesFrm_TMDBii = "&include_adult=false&language=en-US&page=1";
 
 export const geminiApi_Key = process.env.REACT_APP_GEMINI_KEY;
+
+export const Firebase_ApiKey = process.env.REACT_APP_FIREBASE_APIKEY;
+
+export const Firebase_AuthDomain = process.env.REACT_APP_FIREBASE_AUTHDOMAIN;
+
+export const Firebase_ProjectId = process.env.REACT_APP_FIREBASE_PROJECTID;
+
+export const Firebase_StorageBucket = process.env.REACT_APP_FIREBASE_STORAGEBUCKET;
+
+export const Firebase_MessagingSenderId = process.env.REACT_APP_FIREBASE_MESSAGINGSENDERID;
+
+export const Firebase_AppId = process.env.REACT_APP_FIREBASE_APPID;
+
+export const Firebase_MeasurementId = process.env.REACT_APP_FIREBASE_MEASUREMENTID;
