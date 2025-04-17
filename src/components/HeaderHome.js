@@ -31,7 +31,7 @@ const HeaderHome = () => {
     const unsubscribe = onAuthStateChanged(auth, (user) => {
       if (user) {
         const { uid, email, displayName, photoURL } =
-          user.uid;
+          user;
         dispatch(
           addUser({
             uid: uid,
@@ -49,7 +49,7 @@ const HeaderHome = () => {
     });
 
     return () => unsubscribe;
-  }, []);
+  }, [dispatch, navigate]);
 
   const handleGptSearch = () => {
     dispatch(toggleGptSearch());
