@@ -1,5 +1,5 @@
 # 🎬 CineStream - Your Ultimate Movie Streaming Platform
-### Live Link :- https://freemoviesaiundriling.netlify.app
+### Live Link :- https://cinestreamfreemovies.netlify.app
 
 CineStream is a modern, user-friendly movie streaming web app that brings the best cinema experience right to your screen — absolutely free.
 It offers a clean, responsive interface built with React and TailwindCSS, optimized for both mobile and desktop users.
