@@ -46,3 +46,64 @@ const searchMoviesFrmTMDB = async (movie) => {
       dispatch(genAiMovieSearch({movieNames: genaiMovies, movieResults: movieResults}))
     }
 
+
+// Movie card ---
+
+import React from 'react'
+import { Movie_Banner_URL } from '../constants'
+
+const MovieCard = ({ posterPath, id, onClick }) => {
+  if (!posterPath) return null;
+
+  return (
+    <div
+      className="w-[150px] md:w-[200px] h-[250px] rounded-lg md:mx-0 mx-2 hover:scale-110 transition-transform duration-200 ease-in-out"
+      onClick={() => onClick}
+    >
+      <img
+        className="w-[185px] h-[240px] rounded-lg cursor-pointer"
+        alt="Movie Banner"
+        src={Movie_Banner_URL + posterPath}
+      />
+    </div>
+  );
+};
+
+export default MovieCard;
+
+
+// Movie List ---
+
+import React, { useState } from 'react'
+import MovieCard from './MovieCard';
+import MovieModal from './movieOpen/movieSeen';
+
+const MovieList = ({ title, movies }) => {
+  const [selectedMovieId, setSelectedMovieId] = useState(null);
+
+  return (
+    <div className='md:-mt-32 md:x-8 mx-3 my-7 md:my-40'>
+      <h1 className='text-white text-lg md:text-2xl font-serif my-2'>{title}</h1>
+      
+      <div className='flex overflow-x-scroll scrollbar-hide overflow-y-hidden'>
+        <div className='flex'>
+          {movies?.map((movie) => (
+            <MovieCard
+              key={movie?.id}
+              posterPath={movie?.poster_path}
+              id={movie?.id}
+              onClick={() => setSelectedMovieId(movie?.id)}
+            />
+          ))}
+        </div>
+      </div>
+
+      {/* Modal */}
+      <MovieModal movieId={selectedMovieId} onClose={() => setSelectedMovieId(null)} />
+    </div>
+  )
+}
+
+export default MovieList;
+
+

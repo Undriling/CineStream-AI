@@ -29,7 +29,7 @@ const lang = {
     assamese: {
         search: "সন্ধান",
         searchPlaceholder: "আপুনি কি চাব বিচাৰে...",
-        nowPlayingText: "নাও  েপ্লইং",
+        nowPlayingText: "নাও প্লেয়িং",
         trendingText: "ট্ৰেণ্ডিং",
         popularText: "জনপ্ৰিয়",
         upcomingText: "আগন্তুক",

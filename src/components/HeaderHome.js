@@ -6,18 +6,15 @@ import { auth } from "../utils/firebase";
 import { useNavigate } from "react-router";
 import { addUser, removeUser } from "../utils/userSlice";
 import { useDispatch, useSelector } from "react-redux";
-import { toggleGptSearch } from "../utils/gptSlice";
+import { clearGptResults, toggleGptSearch } from "../utils/gptSlice";
 import { changeLang } from "../utils/langConfigSlice";
 import lang from "../langConstants";
 
 const HeaderHome = () => {
-  const langKey = useSelector(
-    (store) => store.langConfig.langSelect
-  );
+  const langKey = useSelector((store) => store.langConfig.langSelect);
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  const [gptSearchBtn, setGptSearchBtn] =
-    useState("AI Search");
+  const [gptSearchBtn, setGptSearchBtn] = useState("AI Search");
 
   const handleSignOut = () => {
     signOut(auth)
@@ -30,8 +27,7 @@ const HeaderHome = () => {
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (user) => {
       if (user) {
-        const { uid, email, displayName, photoURL } =
-          user;
+        const { uid, email, displayName, photoURL } = user;
         dispatch(
           addUser({
             uid: uid,
@@ -52,10 +48,12 @@ const HeaderHome = () => {
   }, [dispatch, navigate]);
 
   const handleGptSearch = () => {
+    if (gptSearchBtn === "Home") {
+      dispatch(clearGptResults());
+    }
+
     dispatch(toggleGptSearch());
-    setGptSearchBtn((text) =>
-      text === "AI Search" ? "Home" : "AI Search"
-    );
+    setGptSearchBtn((text) => (text === "AI Search" ? "Home" : "AI Search"));
   };
 
   const handleLangChange = (e) => {
