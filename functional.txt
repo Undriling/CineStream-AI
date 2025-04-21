@@ -107,3 +107,117 @@ const MovieList = ({ title, movies }) => {
 export default MovieList;
 
 
+// Bg Video Title ---
+import React, { useRef, useState } from 'react'
+import { MoviePlayer_URL } from '../constants';
+
+const BgVideoTitle = ({title, description, id}) => {
+    const [showDescription, setShowDescription] = useState(false)
+    const vdoPlayerRef = useRef();
+
+    // const goToReviewPage = () => {
+    //     window.open(MoviePage_URLPi + id + MoviePage_URLPii, '_blank')
+    //   };
+
+    // const handleClick = () => {
+    //     window.open(MoviePlayer_URL + id, '_blank')
+    //   };
+
+    const handlePlayer = () => {
+        setTimeout(() => {
+          if (vdoPlayerRef.current?.requestFullscreen) {
+            vdoPlayerRef.current.requestFullscreen();
+          }
+        }, 200);
+    }
+
+  return (
+    <div className='absolute text-white font-serif bg-gradient-to-b from-black w-screen aspect-video md:mt-0 mt-[32px]'>
+        <div className='my-[17%] mx-4 md:mx-10'>
+            <h1 className='text-xl md:text-6xl font-serif font-extrabold'>{title}</h1>
+            {showDescription && <p className='md:w-1/2 text-xs md:text-lg my-1 md:my-4 '>{description}</p>}
+            <div className='flex flex-wrap md:ml-0 my-2 md:my-7'>
+                <button className='bg-white text-black w-20 md:w-36 h-6 md:h-10 rounded-md hover:bg-opacity-80' onClick={handleClick}>▶ Play</button>
+                <button className=' bg-gray-500 text-black w-20 md:w-36 h-6 md:h-10 rounded-md mx-3 hover:bg-opacity-80' onClick={() => setShowDescription(!showDescription)}> More Info</button>
+            </div>
+        </div>
+    </div>
+  )
+}
+
+export default BgVideoTitle;
+
+
+
+/// 
+import React, { useRef, useState } from 'react';
+import { MoviePlayer_URL } from '../constants';
+import { FaPlay } from 'react-icons/fa';
+import { RxCross1 } from 'react-icons/rx';
+
+const BgVideoTitle = ({ title, description, id }) => {
+  const [showDescription, setShowDescription] = useState(false);
+  const [isPlaying, setIsPlaying] = useState(false);
+  const vdoPlayerRef = useRef(null);
+
+  const handlePlay = () => {
+    setIsPlaying(true);
+    setTimeout(() => {
+      if (vdoPlayerRef.current?.requestFullscreen) {
+        vdoPlayerRef.current.requestFullscreen();
+      }
+    }, 200);
+  };
+
+  const handleClose = () => {
+    setIsPlaying(false);
+    document.exitFullscreen?.(); // optional: exit fullscreen
+  };
+
+  return (
+    <div className="relative text-white font-serif bg-gradient-to-b from-black w-screen aspect-video md:mt-0 mt-[32px]">
+      {isPlaying ? (
+        <div ref={vdoPlayerRef} className="relative w-full h-full md:h-screen">
+          <iframe
+            src={MoviePlayer_URL + id}
+            allowFullScreen
+            title="Movie Player"
+            className="w-full h-full rounded-md"
+          />
+          <button
+            className="absolute top-4 right-6 text-white text-3xl z-10"
+            onClick={handleClose}
+          >
+            <RxCross1 />
+          </button>
+        </div>
+      ) : (
+        <div className="my-[17%] mx-4 md:mx-10">
+          <h1 className="text-xl md:text-6xl font-serif font-extrabold">{title}</h1>
+          {showDescription && (
+            <p className="md:w-1/2 text-xs md:text-lg my-1 md:my-4">{description}</p>
+          )}
+          <div className="flex flex-wrap md:ml-0 my-2 md:my-7">
+            <button
+              className="bg-white text-black w-20 md:w-36 h-6 md:h-10 rounded-md hover:bg-opacity-80 flex items-center justify-center gap-2"
+              onClick={handlePlay}
+            >
+              <FaPlay className="text-sm md:text-base" /> Play
+            </button>
+            <button
+              className="bg-gray-500 text-black w-20 md:w-36 h-6 md:h-10 rounded-md mx-3 hover:bg-opacity-80"
+              onClick={() => setShowDescription(!showDescription)}
+            >
+              More Info
+            </button>
+          </div>
+        </div>
+      )}
+    </div>
+  );
+};
+
+export default BgVideoTitle;
+
+
+
