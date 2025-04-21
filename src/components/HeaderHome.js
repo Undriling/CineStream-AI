@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Logo_URL, SupportedLanguages } from "../constants";
+import { SupportedLanguages } from "../constants";
 import NetflixPofileImage from "../assets/netflixProfileImg.jpg";
 import { onAuthStateChanged, signOut } from "firebase/auth";
 import { auth } from "../utils/firebase";
@@ -63,9 +63,9 @@ const HeaderHome = () => {
   return (
     <div className="w-full absolute pt-1 md:pt-0 lg:px-15 lg:mx-15 md:py-3 z-10 bg-gradient-to-b from-black flex justify-between items-center flex-wrap md:flex-row md:bg-transparent">
       <img
-        src={Logo_URL}
+        src="/logo.png"
         alt="logo"
-        className="mx-auto md:mx-0 w-[140px] md:w-[200px] md:h-[80px] h-16 cursor-pointer"
+        className="mx-auto md:mx-2 w-[140px] md:w-[200px] md:h-[50px] h-16 cursor-pointer"
       />
       <select
         className="md:px-1 h-[26px] md:h-10 my-6 md:my-2 md:mx-2 md:ml-[60%] rounded-xl bg-purple-600 text-white font-serif hover:bg-purple-800"
