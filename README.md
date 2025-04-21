@@ -26,25 +26,64 @@ It offers a clean, responsive interface built with React and TailwindCSS, optimi
 🔐 Ad-Free, Safe Experience: Watch without worrying about annoying ads or pop-ups.
 
 ### 🛠️ Technologies Used
-React.js
+- React.js
 
-TailwindCSS
+- TailwindCSS
 
-Redux Toolkit (for global state management like user info, movie lists, playback status)
+- Redux Toolkit (for global state management like user info, movie lists, playback status)
 
-Custom React Hooks (for reusable logic like API fetching, auth, player controls)
+- Custom React Hooks (for reusable logic like API fetching, auth, player controls)
 
-Firebase Authentication (secure Sign In / Sign Up with Email)
+- Firebase Authentication (secure Sign In / Sign Up with Email)
 
-GenAI Search (for intelligent movie search and recommendations)
+- GenAI Search (for intelligent movie search and recommendations)
 
-TMDb API (The Movie Database API - latest, top-rated, trending movies, genres, search)
+- TMDb API (The Movie Database API - latest, top-rated, trending movies, genres, search)
 
-Vidsrc.cc API (for movie streaming)
+- Vidsrc.cc API (for movie streaming)
 
-Multilingual Support (English, Hindi, Assamese etc.)
+- Multilingual Support (English, Hindi, Assamese etc.)
 
+### 🚀 How to Fork, Clone & Run Locally
 
+1. Fork the Repository
+
+Click the Fork button (top right corner) on GitHub.
+
+This will create a copy of the repo under your GitHub account.
+
+2. Clone Your Fork
+
+git clone https://github.com/your-username/your-repo-name.git
+cd your-repo-name
+
+4. Install Dependencies
+Make sure you have Node.js and npm installed.
+
+Then run:
+
+npm install
+
+4. Create a .env File
+Inside the project root, create a .env file for your environment variables.
+
+environment variables ---
+
+REACT_APP_GEMINI_KEY=your-gemini-key
+REACT_APP_TMDB_KEY=your-tmdb-api-key
+REACT_APP_FIREBASE_APIKEY=your-firebase-api-key
+REACT_APP_FIREBASE_AUTHDOMAIN=your-firebase-auth-domain
+REACT_APP_FIREBASE_PROJECTID=your-firebase-project-id
+REACT_APP_FIREBASE_STORAGEBUCKET=your-firebase-storage-bucket
+REACT_APP_FIREBASE_MESSAGINGSENDERID=your-firebase-messaging-sender-id
+REACT_APP_FIREBASE_APPID=your-firebase-app-id
+REACT_APP_FIREBASE_MEASUREMENTID=your-firebase-measurement-id
+
+Replace the your... values with your actual Gemini, Firebase and TMDb credentials.
+
+5. Start the Development Server
+
+npm run start
 
 
 
