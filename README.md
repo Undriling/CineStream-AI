@@ -1,5 +1,53 @@
-# Netflix+ : Latest Movies Streaming Platform For FREE
+# 🎬 CineStream - Your Ultimate Movie Streaming Platform
 ### Live Link :- https://freemoviesaiundriling.netlify.app
+
+CineStream is a modern, user-friendly movie streaming web app that brings the best cinema experience right to your screen — absolutely free.
+It offers a clean, responsive interface built with React and TailwindCSS, optimized for both mobile and desktop users.
+
+### ✨ Key Features
+🎞️ Free Streaming: Instantly watch a wide selection of movies without any subscription or payment.
+
+🔍 GenAI Powered Smart Search: Find movies faster with AI-enhanced search that understands titles, genres, actors, and moods.
+
+🌐 Multilingual Support: Enjoy movies and app navigation in multiple languages, making it accessible globally.
+
+🔒 Secure Sign In & Sign Up: Users can safely create accounts, log in, and manage their profiles using secure authentication (Google login, email/password).
+
+🔥 Trending, Latest, and Top Rated Suggestions: Get curated lists including the newest releases, trending blockbusters, and top-rated classics, personalized for your mood.
+
+🆓 Seamless Movie Playback: Click on any movie and instantly start watching in high quality, no redirects, no ads.
+
+🎥 Dynamic Movie Info Modal: View full movie descriptions, ratings, release dates, and trailers in a beautiful modal without leaving the page.
+
+⚡ Instant Play Mode: Launch full-screen movie playback instantly inside the app with a smooth transition.
+
+🧠 Smart Recommendations: After watching, get AI-based suggestions for similar movies you might love.
+
+🔐 Ad-Free, Safe Experience: Watch without worrying about annoying ads or pop-ups.
+
+### 🛠️ Technologies Used
+React.js
+
+TailwindCSS
+
+Redux Toolkit (for global state management like user info, movie lists, playback status)
+
+Custom React Hooks (for reusable logic like API fetching, auth, player controls)
+
+Firebase Authentication (secure Sign In / Sign Up with Email)
+
+GenAI Search (for intelligent movie search and recommendations)
+
+TMDb API (The Movie Database API - latest, top-rated, trending movies, genres, search)
+
+Vidsrc.cc API (for movie streaming)
+
+Multilingual Support (English, Hindi, Assamese etc.)
+
+
+
+
+
 
 
 # Getting Started with Create React App
