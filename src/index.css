@@ -4,21 +4,132 @@
 
 /* Hide scrollbar but allow scrolling For Movie List */
 .scrollbar-hide::-webkit-scrollbar {
-    display: none;
+  display: none;
 }
 
-html, body {
-    height: 100%;
-    margin: 0;
-    padding: 0;
-    overflow-x: hidden;
-  }
-  
-  .main-content {
-    flex: 1;
-  }
+html,
+body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+
+.main-content {
+  flex: 1;
+}
 
 .scrollbar-hide {
-    -ms-overflow-style: none;  /* IE and Edge */
-    scrollbar-width: none;  /* Firefox */
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.rotated-badge {
+  pointer-events: none;
+  background: #2bde73;
+  color: rgba(0, 0, 0, 0.75);
+  font-weight: 600;
+  border-radius: 15px;
+  font-family: serif;
+  text-align: center;
+  display: block;
+  padding: 7px;
+  padding-left: 14px;
+  padding-right: 14px;
+  position: absolute;
+  right: -40px;
+  top: -8px;
+  -webkit-transform: rotate(10deg);
+  -moz-transform: rotate(10deg);
+  -ms-transform: rotate(10deg);
+  transform: rotate(10deg);
+}
+
+@keyframes animatedgradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@keyframes rotating {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.form-logo .logo-box {
+  width: 50px;
+  height: 50px;
+  margin-top: 10px;
+  display: inline-block;
+  background: linear-gradient(
+    60deg,
+    #f79533,
+    #f37055,
+    #ef4e7b,
+    #a166ab,
+    #5073b8,
+    #1098ad,
+    #07b39b,
+    #6fba82
+  );
+  background-size: 300% 300%;
+
+  mask-image: url("/public/favicon.jpeg");
+  mask-repeat: no-repeat;
+  mask-size: contain;
+  mask-position: center;
+
+  -webkit-mask-image: url("/public/favicon.jpeg");
+  -webkit-mask-repeat: no-repeat;
+  -webkit-mask-size: contain;
+  -webkit-mask-position: center;
+
+  animation: rotating 5s linear infinite,
+    animatedgradient 6s ease infinite alternate;
+}
+
+.form-logo h1 {
+  text-transform: uppercase;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  padding-left: 0;
+  padding-right: 21px;
+  line-height: 1.88;
+  color: #fff;
+  height: 60px;
+  overflow: hidden;
+  margin: 0;
+  left: 21px;
+  font-size: 30px;
+  top: 50%;
+  background: -webkit-linear-gradient(45deg, #680aca, #ff897e);
+  background: linear-gradient(
+    60deg,
+    #f79533,
+    #f37055,
+    #ef4e7b,
+    #a166ab,
+    #5073b8,
+    #1098ad,
+    #07b39b,
+    #6fba82
+  );
+  -webkit-animation: animatedgradient 6s ease infinite alternate;
+  animation: animatedgradient 6s ease infinite alternate;
+  background-size: 300% 300%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-top: -3px;
 }
