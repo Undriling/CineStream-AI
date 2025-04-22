@@ -38,9 +38,9 @@ It offers a clean, responsive interface built with React and TailwindCSS, optimi
 
 - GenAI Search (for intelligent movie search and recommendations)
 
-- TMDb API (The Movie Database API - latest, top-rated, trending movies, genres, search)
+- The Movie Database - latest, top-rated, trending movies, genres, search)
 
-- Vidsrc.cc API (for movie streaming)
+- Movie streaming
 
 - Multilingual Support (English, Hindi, Assamese etc.)
 
