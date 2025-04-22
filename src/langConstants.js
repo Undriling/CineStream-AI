@@ -3,6 +3,7 @@ const lang = {
         search: "Search",
         searchPlaceholder: "What would you like to watch...",
         nowPlayingText: "Now playing",
+        latestText: "Latest",
         trendingText: "Trending",
         popularText: "Popular",
         upcomingText: "Upcoming",

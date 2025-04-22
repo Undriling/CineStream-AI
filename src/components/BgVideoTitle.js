@@ -7,7 +7,7 @@ const BgVideoTitle = ({ title, description, id }) => {
   const [showDescription, setShowDescription] = useState(false);
 
   return (
-    <div className="absolute text-white font-serif bg-gradient-to-b from-black w-screen aspect-video md:mt-0 mt-[32px]">
+    <div className="absolute text-white font-serif bg-gradient-to-b from-black w-screen aspect-video md:mt-0 mt-[11px]">
       <div className="my-[17%] mx-4 md:mx-10">
         <h1 className="text-xl md:text-6xl font-serif font-extrabold">
           {title}
@@ -23,15 +23,15 @@ const BgVideoTitle = ({ title, description, id }) => {
 
             <div className="flex flex-wrap md:ml-0 my-2 md:my-7">
               <button
-                className="bg-white text-black w-20 md:w-36 h-6 md:h-10 rounded-md hover:bg-opacity-80"
+                className="bg-white text-black w-20 text-sm md:w-36 h-5 md:h-10 rounded-md hover:bg-opacity-80"
                 onClick={() => setIsPlaying(true)}>
                 ▶ Play
               </button>
 
               <button
-                className="bg-gray-500 text-black flex items-center justify-center w-20 md:w-36 h-6 md:h-10 rounded-md mx-3 hover:bg-opacity-80"
+                className="bg-gray-500 text-black flex items-center justify-center w-[110px] text-sm md:w-36 h-5 md:h-10 rounded-md mx-3 hover:bg-opacity-80"
                 onClick={() => setShowDescription(!showDescription)}>
-                <BsInfoCircle /> More Info
+                <BsInfoCircle />  More Info
               </button>
             </div>
           </>

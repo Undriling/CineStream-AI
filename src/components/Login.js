@@ -5,12 +5,18 @@ import { validateSignIn } from "../utils/validate";
 import {
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
+  updateProfile,
 } from "firebase/auth";
 import { auth } from "../utils/firebase";
+import { useDispatch } from "react-redux";
+import { addUser } from "../utils/userSlice";
 
 const Login = () => {
   const [isSignUp, setIsSignUp] = useState(true);
   const [errMsg, setErrMsg] = useState(null);
+  const name = useRef(null);
+  const phoneNumber = useRef(null);
+  const dispatch = useDispatch();
 
   const email = useRef(null);
   const password = useRef(null);
@@ -27,12 +33,26 @@ const Login = () => {
         password.current.value
       )
         .then((userCredential) => {
-          // const user = userCredential.user;
-          setErrMsg("Successfully Signing Up.Sign In Now");
+          const user = userCredential.user;
+
+          return updateProfile(user, {
+            displayName: name.current.value,
+          }).then(() => {
+            // Re-fetch from auth.currentUser to get updated profile
+            const updatedUser = auth.currentUser;
+            dispatch(
+              addUser({
+                uid: updatedUser.uid,
+                email: updatedUser.email,
+                displayName: updatedUser.displayName,
+                phoneNumber: phoneNumber.current.value,
+              })
+            );
+            setErrMsg("Successfully Signed Up. Sign In Now");
+          });
         })
         .catch((error) => {
-          const errorCode = error.code;
-          setErrMsg(errorCode);
+          setErrMsg(error.code);
         });
     } else {
       signInWithEmailAndPassword(
@@ -77,13 +97,14 @@ const Login = () => {
             {isSignUp ? "Sign Up" : "Sign In"}
           </h1>
           <div>
-            <img src="" alt="Form Logo" className="h-16 logo-box"/>
+            <img src="" alt="Form Logo" className="h-16 logo-box" />
           </div>
         </div>
 
         {isSignUp && (
           <div className="my-5 bg-gradient-to-br rounded-md focus:outline-none">
             <input
+              ref={name}
               type="text"
               placeholder="Name"
               required
@@ -105,6 +126,7 @@ const Login = () => {
         {isSignUp && (
           <div className="my-5 bg-gradient-to-br rounded-md focus:outline-none">
             <input
+              ref={phoneNumber}
               type="tel"
               pattern="[0-9]{10}"
               placeholder="Enter 10-digit phone number"
@@ -151,7 +173,12 @@ const Login = () => {
             bot.
           </p>
         )}
-        {!isSignUp && <p className="text-gray-200 text-sm mt-3 font-mono">🎬 CINESTREAM™ is a registered trademark. Formerly known as MOVIES AI . ©2025. Terms of Service and Privacy Policy</p>}
+        {!isSignUp && (
+          <p className="text-gray-200 text-sm mt-3 font-mono">
+            🎬 CINESTREAM™ is a registered trademark. Formerly known as MOVIES
+            AI . ©2025. Terms of Service and Privacy Policy
+          </p>
+        )}
       </form>
     </div>
   );

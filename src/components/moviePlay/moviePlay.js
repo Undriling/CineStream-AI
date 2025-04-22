@@ -39,7 +39,8 @@ const MoviePlay = ({ movieId, onClose, movies }) => {
             <iframe
               src={MoviePlayer_URL + movieId}
               allowFullScreen
-              className="w-full h-full md:h-screen rounded-md"
+              className="w-full h-full md:h-screen rounded-md opacity-100"
+               referrerpolicy="no-referrer-when-downgrade"
               title="Movie Player"
             />
 

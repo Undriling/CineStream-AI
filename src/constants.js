@@ -17,6 +17,8 @@ export const GetTrailer_URLii = "/videos?language=en-US";
 
 export const NowPlayingMovie_URL = "https://api.themoviedb.org/3/movie/now_playing";
 
+export const latestMovie_URL = "https://api.themoviedb.org/3/movie/latest";
+
 export const PopularMovie_URL = "https://api.themoviedb.org/3/movie/popular";
 
 export const TrendingMovie_URL = "https://api.themoviedb.org/3/movie/top_rated";
