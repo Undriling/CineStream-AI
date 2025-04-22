@@ -165,7 +165,7 @@ const Login = () => {
           className="text-white my-7 cursor-pointer hover:font-semibold">
           {isSignUp
             ? "Already a user?Sign in now"
-            : "New to Netflix?Sign up now"}
+            : "New to CineStream?Sign up now"}
         </p>
         {!isSignUp && (
           <p className="text-gray-200 font-light text-sm">
