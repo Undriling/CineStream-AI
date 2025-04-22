@@ -11,7 +11,7 @@ const MovieListContainer = () => {
     movies && (
     <div className='absolute mt-[56%] md:mt-[50%] w-screen bg-black'>
         <MovieList title={lang[langKey].nowPlayingText} movies={movies?.nowPlayingMovies}/>
-        <MovieList title={lang[langKey].latestText} movies={movies?.addLatestMovies}/>
+       {/*<MovieList title={lang[langKey].latestText} movies={movies?.addLatestMovies}/> */}
         <MovieList title={lang[langKey].trendingText} movies={movies?.trendingMovie}/>
         <MovieList title={lang[langKey].popularText} movies={movies?.popularMovie}/>
         <MovieList title={lang[langKey].upcomingText} movies={movies?.upcomingMovie}/>
