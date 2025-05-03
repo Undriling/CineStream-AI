@@ -28,7 +28,7 @@ const useHandleGenaiSearch = () => {
     const prompt =
       "Act like a movie recomandation system . Give me some movie results for the query :" +
       gptSearchInput.current.value +
-      ".Give me top 5 movie names suggestions which is seprated by comma like the example result ahead. Example result : Golmall, Don, Koi Mil Gya, Hera Pheri, Phir Hera Pheri";
+      "Return up to 5 movie name suggestions based on the query. If an exact match exists, return it as the first item. Then add up to 4 related or partial match movie names. Separate all names with commas. For example: Tum Ho Naa, Tum Mile, Tum Bin, Tumko Na Bhool Payenge, Tum Se Achcha Kaun Hai";
     const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
 
     const result = await model.generateContent(prompt);
