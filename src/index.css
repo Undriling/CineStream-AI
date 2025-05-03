@@ -7,12 +7,18 @@
   display: none;
 }
 
+body::-webkit-scrollbar {
+  display: none;
+}
+
 html,
 body {
   height: 100%;
   margin: 0;
   padding: 0;
   overflow-x: hidden;
+  overflow: auto;
+  scrollbar-width: none;
 }
 
 .main-content {
@@ -37,7 +43,7 @@ body {
   padding-left: 14px;
   padding-right: 14px;
   position: absolute;
-  right: -40px;
+  right: -18px;
   top: -8px;
   -webkit-transform: rotate(10deg);
   -moz-transform: rotate(10deg);
