@@ -4,6 +4,9 @@
 CineStream is a modern, user-friendly movie streaming web app that brings the best cinema experience right to your screen — absolutely free.
 It offers a clean, responsive interface built with React and TailwindCSS, optimized for both mobile and desktop users.
 
+### For the best experience, I recommend using a laptop or desktop device.
+
+
 ### ✨ Key Features
 🎞️ Free Streaming: Instantly watch a wide selection of movies without any subscription or payment.
 
@@ -38,9 +41,9 @@ It offers a clean, responsive interface built with React and TailwindCSS, optimi
 
 - GenAI Search (for intelligent movie search and recommendations)
 
-- TMDb API (The Movie Database API - latest, top-rated, trending movies, genres, search)
+- The Movie Database - latest, top-rated, trending movies, genres, search)
 
-- Vidsrc.cc API (for movie streaming)
+- Movie streaming
 
 - Multilingual Support (English, Hindi, Assamese etc.)
 
