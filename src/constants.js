@@ -33,7 +33,8 @@ export const SupportedLanguages = [{identifier: "en", name: "English"}, {identif
 export const MoviePage_URLPi = "https://www.themoviedb.org/movie/";
 export const MoviePage_URLPii = "/watch?translate=true&locale=IN";
 
-export const MoviePlayer_URL = "https://vidsrc.cc/v2/embed/movie/";
+// export const MoviePlayer_URL = "https://vidsrc.cc/v2/embed/movie/";
+export const MoviePlayer_URL = "https://vidsrc.xyz/embed/movie/";
 
 export const SearchMoviesFrm_TMDBi = "https://api.themoviedb.org/3/search/movie?query=";
 export const SearchMoviesFrm_TMDBii = "&include_adult=false&language=en-US&page=1";

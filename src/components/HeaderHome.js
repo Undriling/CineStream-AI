@@ -11,6 +11,7 @@ import { changeLang } from "../utils/langConfigSlice";
 import lang from "../langConstants";
 import Popover from "../components/custom/popover";
 import { Home, Search } from "lucide-react";
+import NotificationPopover from "./NotificationPopover";
 
 const HeaderHome = () => {
   const langKey = useSelector((store) => store.langConfig.langSelect);
@@ -57,7 +58,7 @@ const HeaderHome = () => {
     }
 
     dispatch(toggleGptSearch());
-    setIsGptSearch(!isGptSearch)
+    setIsGptSearch(!isGptSearch);
   };
 
   const handleLangChange = (e) => {
@@ -85,17 +86,30 @@ const HeaderHome = () => {
         ))}
       </select>
 
+      {/* Notification Bell */}
+      <NotificationPopover />
+
       <button
-        className="px-2 md:px-3 h-[26px] ml-20 md:h-10 my-6 md:my-2 mx-0 md:mx-2 rounded-lg md:ml-auto font-serif"
+        className="px-2 md:px-3 h-[26px] ml-0 md:h-10 my-6 md:my-2 mx-0 md:mx-2 rounded-lg md:ml-auto font-serif"
         onClick={handleGptSearch}>
-        {isGptSearch ? <Home className="w-5 h-5 text-gray-300 mr-2" /> : <Search className="w-5 h-5 text-gray-300 mr-2" />}
+        {isGptSearch ? (
+          <Home className="w-5 h-5 text-gray-300 mr-2" />
+        ) : (
+          <Search className="w-5 h-5 text-gray-300 mr-2" />
+        )}
       </button>
 
       <div className="flex flex-col items-center place-items-center w-auto md:h-10 md:my-0 -ml-2 md:-ml-0 md:mr-0 md:mx-2 text-center bg-opacity-10 backdrop-blur-md font-serif">
         <Popover imageSrc={NetflixPofileImage} imageAlt="User avatar">
-          <img src="/profile-icon.gif" alt="profile-icon" className="w-10 h-10 items-center justify-center"/>
+          <img
+            src="/profile-icon.gif"
+            alt="profile-icon"
+            className="w-10 h-10 items-center justify-center"
+          />
           <p className="text-sm text-gray-700">{userInfo?.email}</p>
-          <p className="text-[20px] text-gray-700 my-1 animated-text">{userInfo?.displayName}</p>
+          <p className="text-[20px] text-gray-700 my-1 animated-text">
+            {userInfo?.displayName}
+          </p>
           <select
             className="md:px-1 h-[40px] ml-1 text-sm md:text-lg w-30 p-2 block md:hidden md:h-10 my-1 md:my-2 md:mx-2 md:ml-[60%] rounded-lg bg-purple-600 text-white font-serif hover:bg-purple-800"
             onChange={handleLangChange}>

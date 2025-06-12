@@ -98,3 +98,10 @@ const lang = {
 
 export default lang;
 
+
+export const NOTIFICATIONS = [
+    "Reminder: For a smoother experience on Cinestream, we recommend using the Brave browser , It blocks ads and auto-redirects, making your streaming faster, easier & safer.",
+    "* New movies added to CineStream",
+    "* Coming Soon: Trailer - Series - Movies World's Trending News",
+  ];
+

@@ -25,7 +25,7 @@ const Popover = ({ imageSrc, imageAlt, imageClass, children }) => {
       />
 
       {open && (
-        <div className="absolute z-10 mt-2 w-auto flex flex-col items-center justify-center p-4 bg-gradient-to-br from-[#ffffff] via-[#fefdff] to-[#86c1e9] border rounded shadow-lg right-0">
+        <div className="absolute z-10 mt-2 w-auto h-auto flex flex-col items-center justify-center p-4 bg-gradient-to-br from-[#ffffff] via-[#fefdff] to-[#86c1e9] border rounded shadow-lg right-0">
           {children}
         </div>
       )}

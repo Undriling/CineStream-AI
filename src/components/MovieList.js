@@ -57,7 +57,7 @@ const MovieList = ({ title, movies }) => {
   }, []);
 
   return (
-    <div className="relative md:mx-8 mx-3 my-7 md:my-0">
+    <div className="relative md:mx-8 mx-3 -my-2 md:my-0">
       <h1 className="text-white text-lg md:text-2xl font-serif my-2">
         {title}
       </h1>

@@ -5,8 +5,6 @@ import { Movie_Banner_URL } from "../constants";
 const MovieCard = ({ posterPath, id, onClick, title, overview, rating, releaseDate }) => {
   if (!posterPath) return null;
 
-  // const movie = movies.find((m) => m.id === movieId);
-
   // const goToReviewPage = () => {
   //   window.open(MoviePage_URLPi + id + MoviePage_URLPii, '_blank')
   //   console.log("Movie ID:", id);
@@ -17,14 +15,6 @@ const MovieCard = ({ posterPath, id, onClick, title, overview, rating, releaseDa
   // };
 
   return (
-    // <div className="w-[150px] md:w-[200px] h-[250px] rounded-lg md:mx-0 mx-2 hover:scale-110 transition-transform duration-200 ease-in-out">
-    //   <img
-    //     className="w-[185px] h-[240px] rounded-lg cursor-pointer"
-    //     alt="Movie Banner"
-    //     src={Movie_Banner_URL + posterPath}
-    //     onClick={() => onClick(id)}
-    //   />
-    // </div>
 
     <div
       className="min-w-[150px] md:min-w-[250px] lg:min-w-[250px] h-[160px] md:-mx-0 mx-2 cursor-pointer transition-transform duration-300 hover:scale-105"
