@@ -21,7 +21,7 @@ const NotificationPopover = ({ notifications = [NOTIFICATIONS] }) => {
     <div className="relative inline-block ml-7 md:ml-auto" ref={popoverRef}>
       <button
         onClick={() => setOpen(!open)}
-        className="relative p-2 rounded-full ml-4 bg-white shadow hover:bg-gray-100 transition">
+        className="relative p-2 rounded-full ml-4 bg-white shadow hover:bg-gray-200 transition">
         <Bell className="w-6 h-6 text-gray-700" />
         {notifications.length > 0 && (
           <span className="absolute top-0 right-0 inline-block w-2 h-2 bg-red-600 rounded-full"></span>

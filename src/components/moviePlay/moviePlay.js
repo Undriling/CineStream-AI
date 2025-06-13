@@ -21,7 +21,7 @@ const MoviePlay = ({ movieId, onClose, movies }) => {
   };
 
   return (
-    <div className="fixed inset-0 bg-black bg-opacity-95 z-50 overflow-y-auto">
+    <div className="fixed inset-0 bg-black bg-opacity-95 z-50 overflow-y-auto scrollbar-hide">
       <div className="relative w-full md:w-[60%] mx-auto mt-10">
         <button
           className="absolute top-4 right-6 text-gray-500 text-3xl z-10"

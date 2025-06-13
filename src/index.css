@@ -175,3 +175,20 @@ body {
   -webkit-text-fill-color: transparent;
   /* margin-top: -3px; */
 }
+
+/* html, body, #root {
+  overflow-x: hidden;
+  overflow-y: auto;
+} */
+
+/* container wrapping header + lists */
+/* .main-wrapper {
+  overflow: visible;
+  position: relative;
+} */
+
+/* the scrollable row only */
+/* .movie-row {
+  overflow-x: auto;
+  overflow-y: hidden;
+} */

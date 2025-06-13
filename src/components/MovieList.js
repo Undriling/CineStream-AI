@@ -32,29 +32,26 @@ const MovieList = ({ title, movies }) => {
     setCanScrollRight(scrollLeft + clientWidth < scrollWidth - 5);
   };
 
-  // useEffect(() => {
-  //   const el = scrollRef.current;
-  //   if (el) {
-  //     el.addEventListener("scroll", updateScrollButtons);
-  //     updateScrollButtons();
-  //     return () => el.removeEventListener("scroll", updateScrollButtons);
-  //   }
-  // }, []);
 
   useEffect(() => {
     const el = scrollRef.current;
     if (!el) return;
-
-    updateScrollButtons(); // Initial check
-
-    el.addEventListener("scroll", updateScrollButtons);
-    window.addEventListener("resize", updateScrollButtons);
-
+  
+    const update = () => updateScrollButtons();
+  
+    // Delay the update to ensure layout is ready
+    const timeout = setTimeout(update, 100);
+  
+    el.addEventListener("scroll", update);
+    window.addEventListener("resize", update);
+  
     return () => {
-      el.removeEventListener("scroll", updateScrollButtons);
-      window.removeEventListener("resize", updateScrollButtons);
+      clearTimeout(timeout);
+      el.removeEventListener("scroll", update);
+      window.removeEventListener("resize", update);
     };
-  }, []);
+  }, [movies]);
+  
 
   return (
     <div className="relative md:mx-8 mx-3 -my-2 md:my-0">
@@ -67,12 +64,12 @@ const MovieList = ({ title, movies }) => {
         {canScrollLeft && (
           <button
             onClick={() => scroll("left")}
-            className="hidden group-hover:flex absolute left-0 top-1/2 -translate-y-1/2 z-10 bg-black/60 hover:bg-black text-white p-2 rounded-full">
+            className="hidden group-hover:flex absolute left-0 top-1/2 -translate-y-1/2 z-30 bg-black/60 hover:bg-black text-white p-2 rounded-full">
             <ChevronLeft size={24} />
           </button>
         )}
 
-        {/* Scrollable Movie Row */}
+        {/* Movie Cards */}
         <div
           ref={scrollRef}
           className="flex overflow-x-scroll overflow-y-hidden scrollbar-hide scroll-smooth">
@@ -100,7 +97,7 @@ const MovieList = ({ title, movies }) => {
         )}
       </div>
 
-      {/* Modal */}
+        {/* Play Screen */}
       {selectedMovieId && (
         <MoviePlay
           movieId={selectedMovieId}

@@ -1,8 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 import { Movie_Banner_URL } from "../constants";
+import { Play } from "lucide-react";
 // import { Play } from "lucide-react";
 
 const MovieCard = ({ posterPath, id, onClick, title, overview, rating, releaseDate }) => {
+  const [isHovered, setIsHovered] = useState(false);
+
   if (!posterPath) return null;
 
   // const goToReviewPage = () => {
@@ -17,8 +20,10 @@ const MovieCard = ({ posterPath, id, onClick, title, overview, rating, releaseDa
   return (
 
     <div
-      className="min-w-[150px] md:min-w-[250px] lg:min-w-[250px] h-[160px] md:-mx-0 mx-2 cursor-pointer transition-transform duration-300 hover:scale-105"
-      onClick={() => onClick(id)}>
+      className="min-w-[150px] md:min-w-[250px] lg:min-w-[250px] h-[160px] relative overflow-visible z-10 md:-mx-0 mx-2 cursor-pointer transition-transform duration-300 hover:scale-105"
+      onClick={() => onClick(id)}
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}>
       <img
         className="rounded w-[235px] h-[150px] object-fill"
         alt="Movie Banner"
@@ -27,32 +32,31 @@ const MovieCard = ({ posterPath, id, onClick, title, overview, rating, releaseDa
         draggable={false}
       />
 
-      {/* Hover Overlay */}
-      {/* <div className="absolute top-0 left-0 w-[400px] h-[400px] bg-black/80 opacity-0 group-hover:opacity-100 transition-opacity duration-300 p-3 rounded-2xl flex flex-col justify-between text-white z-10"> */}
-        {/* Extra Image */}
-        {/* <img
-          src={Movie_Banner_URL + posterPath}
-          alt="Movie Preview"
-          className="rounded-md mb-2 object-cover w-[390px] h-[390px]"
-        /> */}
+      {/* Hover Preview Card */}
+      {isHovered && (
+        <div className="hidden absolute z-0 top-[-250px] left-0 md:left-[-60px] w-[350px] h-[400px] bg-[#181818] rounded-md shadow-lg p-4 transition-all duration-300 ease-in-out scale-110 origin-top">
+          <img
+            src={Movie_Banner_URL + posterPath}
+            alt="Movie Preview"
+            className="w-full h-48 object-cover rounded-md mb-3"
+          />
 
-        {/* Details */}
-        {/* <div className="space-y-1">
-          <h3 className="text-lg font-semibold">{title}</h3>
-          <p className="text-sm line-clamp-3">{overview}</p>
-          <p className="text-green-400 text-sm font-medium">{Math.floor(rating * 10)}% Match</p>
-          <p className="text-gray-400 text-sm font-medium">{new Date(releaseDate).getFullYear()}</p>
-        </div> */}
+          <div className="space-y-1">
+            <h3 className="text-lg font-semibold text-white">{title}</h3>
+            <p className="text-sm text-gray-400 line-clamp-3">{overview}</p>
+            <p className="text-green-500 text-sm font-medium">{Math.floor(rating * 10)}% Match</p>
+            <p className="text-gray-400 text-sm font-medium">{new Date(releaseDate).getFullYear()}</p>
+          </div>
 
-        {/* Play Button */}
-        {/* <button
-          onClick={() => onClick(id)}
-          className="mt-2 w-full flex items-center justify-center bg-red-600 hover:bg-red-700 text-white py-2 rounded-md transition-colors"
-        >
-          <Play size={18} className="mr-2" />
-          Play
-        </button> */}
-      {/* </div> */}
+          <button
+            onClick={() => onClick(id)}
+            className="mt-3 w-full flex items-center justify-center bg-red-600 hover:bg-red-700 text-white py-2 rounded-md transition"
+          >
+            <Play size={18} className="mr-2" />
+            Play
+          </button>
+        </div>
+      )}
     </div>
   );
 };
