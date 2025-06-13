@@ -99,7 +99,7 @@ const HeaderHome = () => {
         )}
       </button>
 
-      <div className="flex flex-col items-center place-items-center w-auto md:h-10 md:my-0 -ml-2 md:-ml-0 md:mr-0 md:mx-2 text-center bg-opacity-10 backdrop-blur-md font-serif">
+      <div className="flex flex-col items-center place-items-center w-auto md:h-10 md:my-0 -ml-2 md:-ml-2 md:mr-0 md:mx-2 text-center bg-opacity-10 backdrop-blur-md font-serif">
         <Popover imageSrc={NetflixPofileImage} imageAlt="User avatar">
           <img
             src="/profile-icon.gif"

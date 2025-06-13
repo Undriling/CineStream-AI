@@ -18,7 +18,7 @@ const NotificationPopover = ({ notifications = [NOTIFICATIONS] }) => {
   }, []);
 
   return (
-    <div className="relative inline-block ml-7" ref={popoverRef}>
+    <div className="relative inline-block ml-7 md:ml-auto" ref={popoverRef}>
       <button
         onClick={() => setOpen(!open)}
         className="relative p-2 rounded-full ml-4 bg-white shadow hover:bg-gray-100 transition">
