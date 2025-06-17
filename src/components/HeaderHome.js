@@ -74,7 +74,7 @@ const HeaderHome = () => {
         onClick={() => navigate("/browse")}
       />
       <select
-        className="md:px-1 h-[26px] hidden md:block md:h-10 my-6 md:my-2 md:mx-2 md:ml-[60%] rounded-lg bg-purple-600 text-white font-serif hover:bg-purple-800"
+        className="md:px-1 h-[26px] hidden md:block md:h-10 my-6 md:my-2 md:mx-2 md:ml-[60%] rounded-lg bg-purple-600 text-white font-serif hover:bg-purple-800 cursor-pointer"
         onChange={handleLangChange}>
         {SupportedLanguages.map((lang) => (
           <option
