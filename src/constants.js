@@ -54,3 +54,6 @@ export const Firebase_MessagingSenderId = process.env.REACT_APP_FIREBASE_MESSAGI
 export const Firebase_AppId = process.env.REACT_APP_FIREBASE_APPID;
 
 export const Firebase_MeasurementId = process.env.REACT_APP_FIREBASE_MEASUREMENTID;
+
+// © 2025 Manash Baruah — Undriling's Cinestream
+// For Undriling’s personal and educational use ONLY — DO NOT COPY or SHARE.

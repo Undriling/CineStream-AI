@@ -1,0 +1,30 @@
+name: Enforce Author Credit
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  add-credit:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v3
+
+      - name: Add credit to source files
+        run: |
+          for file in $(find . -type f \( -name "*.js" -o -name "*.jsx" -o -name "*.ts" -o -name "*.tsx" \)); do
+            if ! grep -q "© 2025 Manash Baruah" "$file"; then
+              sed -i '1s;^;// © 2025 Manash Baruah — Undriling'"'"'s Cinestream\n// For Undriling’s personal and educational use ONLY — DO NOT COPY or SHARE.\n\n;' "$file"
+            fi
+          done
+
+      - name: Commit and push changes
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add .
+          git commit -m "Auto-inserted credit headers" || echo "No changes to commit"
+          git push
