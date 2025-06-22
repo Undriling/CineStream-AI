@@ -66,7 +66,7 @@ const HeaderHome = () => {
   };
 
   return (
-    <div className="w-full z-[100] absolute top-0 left-0 flex flex-wrap items-center justify-between px-4 py-2 md:px-8 md:py-3 bg-gradient-to-b from-black md:bg-transparent">
+    <div className="w-full absolute pt-1 md:pt-0 lg:px-15 lg:mx-15 md:py-3 z-10 bg-gradient-to-b from-black flex justify-between items-center flex-wrap md:flex-row md:bg-transparent">
       <img
         src="/logo.png"
         alt="logo"
@@ -89,7 +89,7 @@ const HeaderHome = () => {
       {/* Notification Bell */}
       <NotificationPopover />
 
-      {/* Search Button */}
+      {/* Search */}
       <button
         className="px-2 md:px-3 h-[26px] ml-0 md:h-10 my-6 md:my-2 mx-0 md:mx-2 rounded-lg md:ml-auto font-serif"
         onClick={handleGptSearch}>
@@ -99,6 +99,7 @@ const HeaderHome = () => {
           <Search className="w-5 h-5 text-gray-300 mr-2" />
         )}
       </button>
+
 
       {/* Profile */}
       <div className="flex flex-col items-center place-items-center w-auto md:h-10 md:my-0 -ml-2 md:-ml-2 md:mr-0 md:mx-2 text-center bg-opacity-10 backdrop-blur-md font-serif">

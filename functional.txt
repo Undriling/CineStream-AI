@@ -221,6 +221,7 @@ export default BgVideoTitle;
 
 
 Headerhome main div css---
-w-full z-[100] absolute top-0 left-0 flex flex-wrap items-center justify-between px-4 py-2 md:px-8 md:py-3 bg-gradient-to-b from-black md:bg-transparent
+w-full z-10 absolute top-0 left-0 flex flex-wrap items-center justify-between px-4 py-2 md:px-8 md:py-3 bg-gradient-to-b from-black md:bg-transparent
 
 
+w-full absolute pt-1 md:pt-0 lg:px-15 lg:mx-15 md:py-3 z-10 bg-gradient-to-b from-black flex justify-between items-center flex-wrap md:flex-row md:bg-transparent
