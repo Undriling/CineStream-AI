@@ -220,4 +220,7 @@ const BgVideoTitle = ({ title, description, id }) => {
 export default BgVideoTitle;
 
 
+Headerhome main div css---
+w-full z-[100] absolute top-0 left-0 flex flex-wrap items-center justify-between px-4 py-2 md:px-8 md:py-3 bg-gradient-to-b from-black md:bg-transparent
+
 

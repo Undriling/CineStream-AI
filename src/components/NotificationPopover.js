@@ -30,8 +30,19 @@ const NotificationPopover = ({ notifications = [NOTIFICATIONS] }) => {
 
       {open && (
         <div className="md:absolute fixed right-0 mt-2 w-72 max-h-96 bg-white border border-gray-200 rounded-md shadow-lg z-20 overflow-y-scroll scrollbar-hide">
+          
           <div className="p-3 border-b text-sm font-medium text-gray-800">
-            <p className="text-[16px] -mb-3">Notifications</p> <br /> <hr />
+            <div className="flex justify-between items-center border-b pb-2 mb-3">
+              <p className="text-[16px] font-semibold text-gray-800">
+                Notifications
+              </p>
+              <button
+                className="text-xl text-gray-400 hover:text-black"
+                onClick={() => setOpen(false)}>
+                ✕
+              </button>
+            </div>
+
             <span className="text-gray-500">
               For a smoother experience on Cinestream, we recommend using the{" "}
               <b>Brave browser</b>. It blocks ads and auto-redirects, making
@@ -39,6 +50,7 @@ const NotificationPopover = ({ notifications = [NOTIFICATIONS] }) => {
               <b>BRAVE is a GOOGLE like browser.</b>{" "}
             </span>
           </div>
+
           {notifications.length === 0 ? (
             <div className="p-4 text-gray-500 text-sm">
               No new notifications

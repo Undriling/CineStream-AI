@@ -20,7 +20,7 @@ const MovieCard = ({ posterPath, id, onClick, title, overview, rating, releaseDa
   return (
 
     <div
-      className="min-w-[150px] md:min-w-[250px] lg:min-w-[250px] h-[160px] relative overflow-visible z-10 md:-mx-0 mx-2 cursor-pointer transition-transform duration-300 hover:scale-105"
+      className="min-w-[150px] md:min-w-[250px] lg:min-w-[250px] h-[160px] relative overflow-visible md:z-10 z-0 md:-mx-0 mx-2 cursor-pointer transition-transform duration-300 hover:scale-105"
       onClick={() => onClick(id)}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}>
