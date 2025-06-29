@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
-import MovieCard from "./MovieCard";
-import MoviePlay from "./moviePlay/moviePlay";
+import MovieCard from "../components/MovieCard";
+import MoviePlay from "../components/moviePlay/moviePlay";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 
 const MovieList = ({ title, movies }) => {
@@ -72,7 +72,7 @@ const MovieList = ({ title, movies }) => {
         {/* Movie Cards */}
         <div
           ref={scrollRef}
-          className="flex space-x-4 overflow-x-auto overflow-y-hidden scrollbar-hide p-2">
+          className="flex overflow-x-scroll overflow-y-hidden scrollbar-hide scroll-smooth">
           {movies?.map((movie) => (
             <MovieCard
               key={movie?.id}

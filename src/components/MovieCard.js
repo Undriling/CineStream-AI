@@ -1,62 +1,59 @@
-import React, { useState } from "react";
+import React from "react";
 import { Movie_Banner_URL } from "../constants";
 import { Play } from "lucide-react";
-// import { Play } from "lucide-react";
 
-const MovieCard = ({ posterPath, id, onClick, title, overview, rating, releaseDate }) => {
-  const [isHovered, setIsHovered] = useState(false);
-
+const MovieCard = ({ posterPath, id, onClick, title, rating, releaseDate }) => {
   if (!posterPath) return null;
 
-  // const goToReviewPage = () => {
-  //   window.open(MoviePage_URLPi + id + MoviePage_URLPii, '_blank')
-  //   console.log("Movie ID:", id);
-  // };
-
-  // const handleClick = () => {
-  //   window.open(MoviePlayer_URL + id, '_blank')
-  // };
-
   return (
-
     <div
-      className="min-w-[150px] md:min-w-[250px] lg:min-w-[250px] h-[160px] relative overflow-visible md:z-10 z-0 md:-mx-0 mx-2 cursor-pointer transition-transform duration-300 hover:scale-105"
+      className="min-w-[130px] md:min-w-[180px] lg:min-w-[200px] flex-shrink-0 bg-white rounded-lg overflow-hidden shadow-md cursor-pointer hover:scale-105 transition-transform duration-300"
       onClick={() => onClick(id)}
-      onMouseEnter={() => setIsHovered(true)}
-      onMouseLeave={() => setIsHovered(false)}>
-      <img
-        className="rounded w-[235px] h-[150px] object-fill"
-        alt="Movie Banner"
-        src={Movie_Banner_URL + posterPath}
-        onClick={() => onClick(id)}
-        draggable={false}
-      />
+    >
+      {/* Movie Poster */}
+      <div className="relative w-full h-[220px] md:h-[260px] lg:h-[300px]">
+        <img
+          src={Movie_Banner_URL + posterPath}
+          alt={title}
+          className="w-full h-[180px] md:h-[220px] lg:h-[280px] object-cover"
+          draggable={false}
+        />
 
-      {/* Hover Preview Card */}
-      {isHovered && (
-        <div className="hidden absolute z-0 top-[-250px] left-0 md:left-[-60px] w-[350px] h-[400px] bg-[#181818] rounded-md shadow-lg p-4 transition-all duration-300 ease-in-out scale-110 origin-top">
-          <img
-            src={Movie_Banner_URL + posterPath}
-            alt="Movie Preview"
-            className="w-full h-48 object-cover rounded-md mb-3"
-          />
-
-          <div className="space-y-1">
-            <h3 className="text-lg font-semibold text-white">{title}</h3>
-            <p className="text-sm text-gray-400 line-clamp-3">{overview}</p>
-            <p className="text-green-500 text-sm font-medium">{Math.floor(rating * 10)}% Match</p>
-            <p className="text-gray-400 text-sm font-medium">{new Date(releaseDate).getFullYear()}</p>
-          </div>
-
+        {/* Optional Floating Buttons */}
+        <div className="absolute top-2 left-2 flex flex-col space-y-2">
           <button
-            onClick={() => onClick(id)}
-            className="mt-3 w-full flex items-center justify-center bg-red-600 hover:bg-red-700 text-white py-2 rounded-md transition"
+            className="bg-green-500 text-white p-1 rounded-full text-xs"
+            title="Info"
           >
-            <Play size={18} className="mr-2" />
-            Play
+            !
+          </button>
+          <button
+            className="bg-pink-500 text-white p-1 rounded-full text-xs"
+            title="Favorite"
+          >
+            ❤
           </button>
         </div>
-      )}
+
+        {/* Play Button */}
+        <button
+          onClick={() => onClick(id)}
+          className="absolute bottom-2 right-2 bg-yellow-400 p-2 rounded-full shadow-lg hover:bg-yellow-500 transition"
+        >
+          <Play size={20} className="text-black" />
+        </button>
+      </div>
+
+      {/* Movie Info */}
+      <div className="p-3">
+        <h3 className="text-sm md:text-base font-semibold line-clamp-1 text-black">{title}</h3>
+        <p className="text-gray-600 text-xs md:text-sm">
+          {releaseDate ? new Date(releaseDate).getFullYear() : "Year Unknown"}
+          {rating !== undefined && (
+            <span className="ml-2 text-green-600 font-medium">{Math.floor(rating * 10)}% Match</span>
+          )}
+        </p>
+      </div>
     </div>
   );
 };
