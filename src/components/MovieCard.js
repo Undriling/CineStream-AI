@@ -7,7 +7,7 @@ const MovieCard = ({ posterPath, id, onClick, title, rating, releaseDate }) => {
 
   return (
     <div
-      className="min-w-[130px] md:min-w-[180px] lg:min-w-[200px] flex-shrink-0 bg-white rounded-lg overflow-hidden shadow-md cursor-pointer hover:scale-105 transition-transform duration-300"
+      className="w-[130px] md:w-[180px] lg:w-[200px] flex-shrink-0 bg-white rounded-lg overflow-hidden shadow-md cursor-pointer hover:scale-105 transition-transform duration-300"
       onClick={() => onClick(id)}
     >
       {/* Movie Poster */}
