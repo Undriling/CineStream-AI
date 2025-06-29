@@ -11,7 +11,7 @@ const MovieCard = ({ posterPath, id, onClick, title, rating, releaseDate }) => {
       onClick={() => onClick(id)}
     >
       {/* Movie Poster */}
-      <div className="relative w-full h-[220px] md:h-[260px] lg:h-[300px]">
+      <div className="relative w-full h-[185px] md:h-[240px] lg:h-[300px]">
         <img
           src={Movie_Banner_URL + posterPath}
           alt={title}
