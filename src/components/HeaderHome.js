@@ -6,7 +6,10 @@ import { auth } from "../utils/firebase";
 import { useNavigate } from "react-router";
 import { addUser, removeUser } from "../utils/userSlice";
 import { useDispatch, useSelector } from "react-redux";
-import { clearGptResults, toggleGptSearch } from "../utils/gptSlice";
+import {
+  clearGptResults,
+  toggleGptSearch,
+} from "../utils/gptSlice";
 import { changeLang } from "../utils/langConfigSlice";
 import lang from "../langConstants";
 import Popover from "../components/custom/popover";
@@ -14,11 +17,15 @@ import { Home, Search } from "lucide-react";
 import NotificationPopover from "./NotificationPopover";
 
 const HeaderHome = () => {
-  const langKey = useSelector((store) => store.langConfig.langSelect);
+  const langKey = useSelector(
+    (store) => store.langConfig.langSelect
+  );
   const userInfo = useSelector((store) => store.user);
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const [isGptSearch, setIsGptSearch] = useState(false);
+  // Step 2: State for cart modal
+  // const [showCart, setShowCart] = useState(false);
 
   const handleSignOut = () => {
     signOut(auth)
@@ -29,25 +36,29 @@ const HeaderHome = () => {
   };
 
   useEffect(() => {
-    const unsubscribe = onAuthStateChanged(auth, async (user) => {
-      if (user) {
-        const { uid, email, displayName, photoURL } = user;
+    const unsubscribe = onAuthStateChanged(
+      auth,
+      async (user) => {
+        if (user) {
+          const { uid, email, displayName, photoURL } =
+            user;
 
-        dispatch(
-          addUser({
-            uid: uid,
-            email: email,
-            displayName: displayName,
-            photoURL: photoURL,
-          })
-        );
-        navigate("/browse");
-      } else {
-        // User is signed out
-        dispatch(removeUser());
-        navigate("/");
+          dispatch(
+            addUser({
+              uid: uid,
+              email: email,
+              displayName: displayName,
+              photoURL: photoURL,
+            })
+          );
+          navigate("/browse");
+        } else {
+          // User is signed out
+          dispatch(removeUser());
+          navigate("/");
+        }
       }
-    });
+    );
 
     return () => unsubscribe;
   }, [dispatch, navigate]);
@@ -100,16 +111,19 @@ const HeaderHome = () => {
         )}
       </button>
 
-
       {/* Profile */}
       <div className="flex flex-col items-center place-items-center w-auto md:h-10 md:my-0 -ml-2 md:-ml-2 md:mr-0 md:mx-2 text-center bg-opacity-10 backdrop-blur-md font-serif">
-        <Popover imageSrc={NetflixPofileImage} imageAlt="User avatar">
+        <Popover
+          imageSrc={NetflixPofileImage}
+          imageAlt="User avatar">
           <img
             src="/profile-icon.gif"
             alt="profile-icon"
             className="w-10 h-10 items-center justify-center"
           />
-          <p className="text-sm text-gray-700">{userInfo?.email}</p>
+          <p className="text-sm text-gray-700">
+            {userInfo?.email}
+          </p>
           <p className="text-[20px] text-gray-700 my-1 animated-text">
             {userInfo?.displayName}
           </p>
@@ -125,6 +139,28 @@ const HeaderHome = () => {
               </option>
             ))}
           </select>
+
+          {/* Step 3: Add Cart Button */}
+          {/* <button
+            className="px-3 py-2 rounded-lg bg-yellow-400 text-black font-bold mx-2 hover:bg-yellow-500 transition"
+            onClick={() => setShowCart(true)}>
+            🛒 Cart
+          </button> */}
+
+          {/* Step 4: Show AddToCart as modal */}
+          {/* {showCart && (
+            <div className="fixed inset-0 bg-black bg-opacity-40 flex items-center justify-center z-50">
+              <div className="relative">
+                <button
+                  className="absolute top-2 right-2 text-xl font-bold text-gray-700 hover:text-red-500"
+                  onClick={() => setShowCart(false)}>
+                  ×
+                </button>
+                <AddToCart />
+              </div>
+            </div>
+          )} */}
+
           <button
             className="font-serif text-xs md:text-sm font-bold w-[150px] h-[40px] text-red-600 bg-black my-[2px] rounded-lg hover:text-red-400 animated-text"
             onClick={handleSignOut}>

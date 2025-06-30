@@ -2,14 +2,21 @@ import React from "react";
 import { Movie_Banner_URL } from "../constants";
 import { Play } from "lucide-react";
 
-const MovieCard = ({ posterPath, id, onClick, title, rating, releaseDate }) => {
+const MovieCard = ({
+  posterPath,
+  id,
+  onClick,
+  title,
+  rating,
+  releaseDate,
+  original_language,
+}) => {
   if (!posterPath) return null;
 
   return (
     <div
       className="w-[130px] md:w-[180px] lg:w-[200px] flex-shrink-0 bg-white rounded-lg overflow-hidden shadow-md cursor-pointer hover:scale-105 transition-transform duration-300"
-      onClick={() => onClick(id)}
-    >
+      onClick={() => onClick(id)}>
       {/* Movie Poster */}
       <div className="relative w-full h-[185px] md:h-[240px] lg:h-[300px]">
         <img
@@ -23,14 +30,12 @@ const MovieCard = ({ posterPath, id, onClick, title, rating, releaseDate }) => {
         <div className="absolute top-2 left-2 flex flex-col space-y-2">
           <button
             className="bg-green-500 text-white p-1 rounded-full text-xs"
-            title="Info"
-          >
+            title="Info">
             !
           </button>
           <button
             className="bg-pink-500 text-white p-1 rounded-full text-xs"
-            title="Favorite"
-          >
+            title="Favorite">
             ❤
           </button>
         </div>
@@ -38,19 +43,27 @@ const MovieCard = ({ posterPath, id, onClick, title, rating, releaseDate }) => {
         {/* Play Button */}
         <button
           onClick={() => onClick(id)}
-          className="absolute bottom-2 right-2 bg-yellow-400 p-2 rounded-full shadow-lg hover:bg-yellow-500 transition"
-        >
+          className="absolute bottom-2 right-2 bg-yellow-400 p-2 rounded-full shadow-lg hover:bg-yellow-500 transition">
           <Play size={20} className="text-black" />
         </button>
       </div>
 
       {/* Movie Info */}
       <div className="p-3">
-        <h3 className="text-sm md:text-base font-semibold line-clamp-1 text-black">{title}</h3>
+        <span className="border border-gray-500 px-1 rounded text-xs">
+          {original_language.toUpperCase()}
+        </span>
+        <h3 className="text-sm md:text-base font-semibold line-clamp-1 text-black">
+          {title}
+        </h3>
         <p className="text-gray-600 text-xs md:text-sm">
-          {releaseDate ? new Date(releaseDate).getFullYear() : "Year Unknown"}
+          {releaseDate
+            ? new Date(releaseDate).getFullYear()
+            : "Year Unknown"}
           {rating !== undefined && (
-            <span className="ml-2 text-green-600 font-medium">{Math.floor(rating * 10)}% Match</span>
+            <span className="ml-2 text-green-600 font-medium">
+              {Math.floor(rating * 10)}% Match
+            </span>
           )}
         </p>
       </div>

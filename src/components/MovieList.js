@@ -82,6 +82,7 @@ const MovieList = ({ title, movies }) => {
               overview={movie.overview}
               rating={movie.vote_average}
               releaseDate={movie.release_date}
+              original_language={movie.original_language}
               onClick={handleCardClick}
             />
           ))}
