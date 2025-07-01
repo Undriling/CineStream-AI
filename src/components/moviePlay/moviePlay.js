@@ -1,11 +1,24 @@
 import React, { useRef, useState } from "react";
-import { Movie_Banner_URL, MoviePlayer_URL } from "../../constants";
+import {
+  Movie_Banner_URL,
+  MoviePlayer_URL,
+} from "../../constants";
 import { FaPlay } from "react-icons/fa6";
 import { RxCross1 } from "react-icons/rx";
+import { Heart } from "lucide-react";
+import { useFavorites } from "../../hooks/useFavoritesContext";
 
 const MoviePlay = ({ movieId, onClose, movies }) => {
   const [isPlaying, setIsPlaying] = useState(false);
   const vdoPlayerRef = useRef(null);
+  const {
+      addToFavorites,
+      removeFromFavorites,
+      isFavorite,
+    } = useFavorites();
+
+  const isFav = isFavorite(movieId);
+
 
   const movie = movies.find((m) => m.id === movieId);
   if (!movie) return null;
@@ -18,6 +31,18 @@ const MoviePlay = ({ movieId, onClose, movies }) => {
         vdoPlayerRef.current.requestFullscreen();
       }
     }, 200);
+  };
+
+  const handleFavoriteClick = (e) => {
+    e.stopPropagation();
+    if (isFav) {
+      removeFromFavorites(movieId);
+    } else {
+      addToFavorites({
+        posterPath: movie.poster_path,
+        id: movie.id,
+      });
+    }
   };
 
   return (
@@ -40,7 +65,7 @@ const MoviePlay = ({ movieId, onClose, movies }) => {
               src={MoviePlayer_URL + movieId}
               allowFullScreen
               className="w-full h-full md:h-screen rounded-md opacity-100"
-               referrerpolicy="no-referrer-when-downgrade"
+              referrerpolicy="no-referrer-when-downgrade"
               title="Movie Player"
             />
 
@@ -58,7 +83,9 @@ const MoviePlay = ({ movieId, onClose, movies }) => {
         ) : (
           <div
             className={`relative w-full transition-all duration-300 ${
-              isPlaying ? "h-screen" : "h-[60vh] md:h-[80vh]"
+              isPlaying
+                ? "h-screen"
+                : "h-[60vh] md:h-[80vh]"
             }`}>
             <img
               src={Movie_Banner_URL + movie?.poster_path}
@@ -71,6 +98,31 @@ const MoviePlay = ({ movieId, onClose, movies }) => {
               className="absolute bottom-10 left-10 bg-gray-300 text-black px-6 py-2 text-lg font-bold rounded-md hover:opacity-80 flex items-center gap-2">
               <FaPlay /> Play
             </button>
+
+            {/* <div className="absolute top-2 left-2 flex flex-col space-y-2"> */}
+            <button
+              className={`
+              absolute bottom-10 right-10
+              px-6 py-2 gap-2
+              rounded-full
+              bg-gray-300
+              hover:bg-gray-200
+              transition
+              ${isFav ? "text-red-500" : "text-white"}
+            `}
+              onClick={handleFavoriteClick}
+              title={
+                isFav
+                  ? "Remove from favorites"
+                  : "Add to favorites"
+              }>
+              <Heart
+                className={`h-7 w-7 ${
+                  isFav ? "fill-current" : ""
+                }`}
+              />
+            </button>
+            {/* </div> */}
           </div>
         )}
 
@@ -85,9 +137,14 @@ const MoviePlay = ({ movieId, onClose, movies }) => {
               </h2>
               <div className="flex items-center gap-4 text-sm md:text-base text-gray-400 mb-4">
                 <span className="text-green-400 font-bold">
-                  {Math.floor(movie?.vote_average * 10)}% Match
+                  {Math.floor(movie?.vote_average * 10)}%
+                  Match
                 </span>
-                <span>{new Date(movie?.release_date).getFullYear()}</span>
+                <span>
+                  {new Date(
+                    movie?.release_date
+                  ).getFullYear()}
+                </span>
                 <span className="border border-gray-500 px-1 rounded text-xs">
                   {movie?.original_language.toUpperCase()}
                 </span>

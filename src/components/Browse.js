@@ -28,6 +28,7 @@ const Browse = () => {
           <MovieListContainer />
         </>
       )}
+
     </div>
   );
 };

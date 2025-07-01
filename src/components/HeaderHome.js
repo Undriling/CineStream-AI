@@ -3,7 +3,7 @@ import { SupportedLanguages } from "../constants";
 import NetflixPofileImage from "../assets/netflixProfileImg.jpg";
 import { onAuthStateChanged, signOut } from "firebase/auth";
 import { auth } from "../utils/firebase";
-import { useNavigate } from "react-router";
+import { Link, useNavigate } from "react-router";
 import { addUser, removeUser } from "../utils/userSlice";
 import { useDispatch, useSelector } from "react-redux";
 import {
@@ -13,8 +13,9 @@ import {
 import { changeLang } from "../utils/langConfigSlice";
 import lang from "../langConstants";
 import Popover from "../components/custom/popover";
-import { Home, Search } from "lucide-react";
+import { Heart, Home, Search } from "lucide-react";
 import NotificationPopover from "./NotificationPopover";
+import { useFavorites } from "../hooks/useFavoritesContext";
 
 const HeaderHome = () => {
   const langKey = useSelector(
@@ -24,8 +25,7 @@ const HeaderHome = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const [isGptSearch, setIsGptSearch] = useState(false);
-  // Step 2: State for cart modal
-  // const [showCart, setShowCart] = useState(false);
+  const { favorites } = useFavorites();
 
   const handleSignOut = () => {
     signOut(auth)
@@ -140,26 +140,13 @@ const HeaderHome = () => {
             ))}
           </select>
 
-          {/* Step 3: Add Cart Button */}
-          {/* <button
-            className="px-3 py-2 rounded-lg bg-yellow-400 text-black font-bold mx-2 hover:bg-yellow-500 transition"
-            onClick={() => setShowCart(true)}>
-            🛒 Cart
-          </button> */}
-
-          {/* Step 4: Show AddToCart as modal */}
-          {/* {showCart && (
-            <div className="fixed inset-0 bg-black bg-opacity-40 flex items-center justify-center z-50">
-              <div className="relative">
-                <button
-                  className="absolute top-2 right-2 text-xl font-bold text-gray-700 hover:text-red-500"
-                  onClick={() => setShowCart(false)}>
-                  ×
-                </button>
-                <AddToCart />
-              </div>
-            </div>
-          )} */}
+          <Link 
+              to="/browse/favorites" 
+              className="flex items-center text-sm md:text-lg gap-2 hover:text-gray-600 text-gray-900 transition-colors"
+            >
+              <Heart className="h-4 w-4" />
+              Favorites ({favorites.length})
+          </Link>
 
           <button
             className="font-serif text-xs md:text-sm font-bold w-[150px] h-[40px] text-red-600 bg-black my-[2px] rounded-lg hover:text-red-400 animated-text"
