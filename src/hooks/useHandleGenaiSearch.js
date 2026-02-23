@@ -35,7 +35,7 @@ const useHandleGenaiSearch = () => {
       gptSearchInput.current.value +
       "Return up to 5 movie name suggestions based on the query. If an exact match exists, return it as the first item. Then add up to 4 related or partial match movie names. Separate all names with commas. For example: Tum Ho Naa, Tum Mile, Tum Bin, Tumko Na Bhool Payenge, Tum Se Achcha Kaun Hai";
     const model = genAI.getGenerativeModel({
-      model: "gemini-pro",
+      model: "gemini-2.5-flash",
     });
 
     // const result = await model.generateContent(prompt);

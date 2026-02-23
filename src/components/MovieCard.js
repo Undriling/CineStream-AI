@@ -84,7 +84,7 @@ const MovieCard = ({
 
       {/* Movie Info */}
       <div className="p-3">
-        <span className="border border-gray-500 px-1 rounded text-xs">
+        <span className="border border-gray-500 px-1 rounded text-xs text-gray-800">
           {original_language?.toUpperCase()}
         </span>
         <h3 className="text-sm md:text-base font-semibold line-clamp-1 text-black">
