@@ -1,4 +1,7 @@
-import { genAiMovieSearch, setGptResultsLoading } from "../utils/gptSlice";
+import {
+  genAiMovieSearch,
+  setGptResultsLoading,
+} from "../utils/gptSlice";
 import { useDispatch } from "react-redux";
 import genAI from "../utils/geminiai";
 import {
@@ -14,7 +17,9 @@ const useHandleGenaiSearch = () => {
 
   const searchMoviesFrmTMDB = async (movie) => {
     const data = await fetch(
-      SearchMoviesFrm_TMDBi + movie + SearchMoviesFrm_TMDBii,
+      SearchMoviesFrm_TMDBi +
+        movie +
+        SearchMoviesFrm_TMDBii,
       API_Options
     );
 
@@ -29,20 +34,47 @@ const useHandleGenaiSearch = () => {
       "Act like a movie recomandation system . Give me some movie results for the query :" +
       gptSearchInput.current.value +
       "Return up to 5 movie name suggestions based on the query. If an exact match exists, return it as the first item. Then add up to 4 related or partial match movie names. Separate all names with commas. For example: Tum Ho Naa, Tum Mile, Tum Bin, Tumko Na Bhool Payenge, Tum Se Achcha Kaun Hai";
-    const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash-latest" });
+    const model = genAI.getGenerativeModel({
+      model: "gemini-pro",
+    });
 
-    const result = await model.generateContent(prompt);
+    // const result = await model.generateContent(prompt);
     // console.log(result.response.text());
 
-    const genaiMovies = result.response.text().split(",");
+    // const genaiMovies = result.response.text().split(",");
 
-    const moviesArray = genaiMovies?.map((movie) => searchMoviesFrmTMDB(movie));
+    try {
+      const result = await model.generateContent(prompt);
+      const text = result?.response?.text();
 
-    const movieResults = await Promise.all(moviesArray);
+      if (!text) {
+        dispatch(setGptResultsLoading(false));
+        return;
+      }
 
-    dispatch(
-      genAiMovieSearch({ movieNames: genaiMovies, movieResults: movieResults })
-    );
+      if (!text) throw new Error("Empty Gemini response");
+
+      const genaiMovies = text
+        .split(",")
+        .map((m) => m.trim());
+
+      const moviesArray = genaiMovies?.map((movie) =>
+        searchMoviesFrmTMDB(movie)
+      );
+
+      const movieResults = await Promise.all(moviesArray);
+
+      dispatch(
+        genAiMovieSearch({
+          movieNames: genaiMovies,
+          movieResults: movieResults,
+        })
+      );
+    } catch (error) {
+      console.error("Gemini error:", error);
+    } finally {
+      dispatch(setGptResultsLoading(false));
+    }
   };
 
   return { gptSearchInput, handleGenaiSearch };
